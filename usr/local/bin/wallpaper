@@ -1,0 +1,37 @@
+#!/bin/bash
+#wallpaper
+
+function reload() {
+  eval $(grep 'hsetroot' ~/.config/openbox/autostart | tail -n1)
+  echo "Redrawing wallpaper..."
+}
+
+if [ "$1" == "-r" ] && [ "$2" == "" ];
+  then reload
+elif [ "$1" == "-b" ] && [ "$2" == "" ];
+  then 
+    spacefm /usr/share/wallpapers/collection &
+    gpicview /usr/share/wallpapers/collection/4.png &
+elif [ "$1" == "-b" ] && [ "$2" == "" ];
+  then
+    hsetroot -clear
+    echo "Wallpaper cleared (blank bacground, color=black)"
+elif [ "$1" != "" ] && [ "$2" == "" ]; then
+  if [ -f "$1" ];
+    then
+      sed -i '/hsetroot.*/d' ~/.config/openbox/autostart
+      echo "hsetroot -fill \"$1\" &" >> ~/.config/openbox/autostart
+      reload
+      echo "Wallpaper set ($1)"
+  else
+    echo "File \"$1\" not found"
+  fi
+else
+  echo 'Usage: wallpaper [OPTION]... [FILE]...'
+  echo 'Select the desktop wallpaper from the /usr/share/wallpaper collection.'
+  echo ''
+  echo '  -r, redraw'
+  echo '  -b, browse (file browser)'
+  echo '  -c, clear (black)'
+  echo 'FILE, set background to image FILE'
+fi
