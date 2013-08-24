@@ -1,0 +1,7 @@
+# 
+# /etc/fstab: static file system information
+#
+# <file system>	<dir>	<type>	<options>	<dump>	<pass>
+UUID=07c4404c-06d3-4621-82f9-42433c894ea9 / ext4 defaults 0 1
+UUID=ff9bdc0b-672e-4e3b-baaf-7ad21abb57a5 swap swap defaults 0 0
+Dropbox /mnt/dropbox vboxsf comment=systemd.automount 0 0
