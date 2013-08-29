@@ -12,7 +12,7 @@ alias lsal='ls -al --color=auto'
 alias lsld='ls -al | grep ^d'
 alias lsd='ls -d */'
 alias lsad='ls -ad */'
-alias wd='pwd'
+alias d='pwd'
 
 alias copy='cp'
 alias rename='mv'
