@@ -22,12 +22,12 @@ alias dir='ls -al | grep ^d'
 alias dud='du -h --max-depth=1 | sort'
 alias dus='du -sh'
 alias dush='du -sh'
-
 awkstr='BEGIN{ pref[1]="K"; pref[2]="M"; pref[3]="G";} { total = total + $1; x = $1; y = 1; while( x > 1024 ) { x = (x + 1023)/1024; y++; } printf("%g%s\t%s\n",int(x*10)/10,pref[y],$2); } END { y = 1; while( total > 1024 ) { total = (total + 1023)/1024; y++; } printf("Total: %g%s\n",int(total*10)/10,pref[y]); }'
-
 alias dusk="du -sk ./* | sort -nr | awk '$awkstr' | sed 's/.\///g' | sed 's/$/\//g'"
-
 alias dfh='df -h .'
+
+alias myip='curl ifconfig.me'
+alias getip=myip
 
 export MOSS='s4234549@moss.labs.eait.uq.edu.au'
 
