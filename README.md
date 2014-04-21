@@ -1,4 +1,4 @@
-oscfg-archbang
+archbang-cfg
 ==============
 
 Moved customisation of an Archbang VM to version control. The filesystem root (/) is now a git repository. 
